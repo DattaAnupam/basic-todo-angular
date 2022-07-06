@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import { ITask } from 'src/app/Task';
 
@@ -14,6 +15,8 @@ export class TaskItemComponent implements OnInit {
     day: 'no day',
     reminder: false,
   };
+
+  faXmark = faXmark;
 
   constructor() {}
 
