@@ -1,4 +1,6 @@
-export const TASKS = [
+import { ITask } from './Task';
+
+export const TASKS: ITask[] = [
   {
     id: 1,
     text: 'Doctors Appointment',
