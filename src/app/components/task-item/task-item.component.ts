@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
-import { ITask } from 'src/app/Task';
+import { ITask } from '../../Task';
 
 @Component({
   selector: 'app-task-item',
