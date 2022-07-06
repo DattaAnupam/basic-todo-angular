@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ITask } from '../../Task';
 import { TaskService } from '../../services/task.service';
+import { TemplateBindingParseResult } from '@angular/compiler';
 
 @Component({
   selector: 'app-tasks',
@@ -14,6 +15,14 @@ export class TasksComponent implements OnInit {
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
-    this.taskService.getTasks().subscribe(() => (this.tasks = this.tasks));
+    // get tasks using task.service
+    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+  }
+
+  deleteTask(task: ITask) {
+    // delete the specified task from db
+    this.taskService.deleteTask(task).subscribe(() => {
+      this.tasks = this.tasks.filter((t) => t.id !== task.id);
+    });
   }
 }

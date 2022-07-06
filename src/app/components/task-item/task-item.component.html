@@ -1,5 +1,5 @@
 <div class="task">
-  <h3>{{ task.text }} <fa-icon [icon]="faXmark" [ngStyle]="{'color': 'red'}"></fa-icon>
+  <h3>{{ task.text }} <fa-icon [icon]="faXmark" [ngStyle]="{'color': 'red'}" (click)="OnClick(task)"></fa-icon>
   </h3>
   <p>{{ task.day }}</p>
 </div>
