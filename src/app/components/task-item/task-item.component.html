@@ -1,4 +1,4 @@
-<div class="task">
+<div class="task" [ngClass]="{remainder: task.reminder}">
   <h3>{{ task.text }} <fa-icon [icon]="faXmark" [ngStyle]="{'color': 'red'}" (click)="OnClick(task)"></fa-icon>
   </h3>
   <p>{{ task.day }}</p>
