@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { ITask } from '../../Task';
 import { TaskService } from '../../services/task.service';
-import { TemplateBindingParseResult } from '@angular/compiler';
 
 @Component({
   selector: 'app-tasks',
@@ -19,10 +18,15 @@ export class TasksComponent implements OnInit {
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
   }
 
-  deleteTask(task: ITask) {
-    // delete the specified task from db
+  // delete the specified task from db
+  deleteTask = (task: ITask) => {
     this.taskService.deleteTask(task).subscribe(() => {
       this.tasks = this.tasks.filter((t) => t.id !== task.id);
     });
-  }
+  };
+
+  // updates a property in db
+  toggleReminderStatus = (task: ITask) => {
+    this.taskService.toggleReminderStatus(task).subscribe();
+  };
 }
