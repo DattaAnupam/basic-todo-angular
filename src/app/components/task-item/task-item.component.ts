@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { Observable } from 'rxjs';
 
 import { ITask } from '../../Task';
 
@@ -23,12 +22,19 @@ export class TaskItemComponent implements OnInit {
 
   // output variable for event emitter
   @Output() onDeleteTask: EventEmitter<ITask> = new EventEmitter();
+  @Output() onToggleReminderStatus: EventEmitter<ITask> = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
 
+  // Emits single click event
   OnClick(task: ITask) {
     this.onDeleteTask.emit(task);
   }
+
+  // Emits double click event
+  onDoubleClick = (task: ITask) => {
+    this.onToggleReminderStatus.emit(task);
+  };
 }
