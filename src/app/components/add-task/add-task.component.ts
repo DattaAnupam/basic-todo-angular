@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { UUID } from 'angular2-uuid';
 
 import { ITask } from '../../Task';
 import { UiService } from 'src/app/services/ui/ui.service';
@@ -38,6 +39,7 @@ export class AddTaskComponent implements OnInit {
     }
 
     const newTask: ITask = {
+      id: UUID.UUID(),
       text: this.text,
       day: this.day,
       reminder: this.reminder,

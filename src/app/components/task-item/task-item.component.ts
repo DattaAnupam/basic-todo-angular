@@ -11,7 +11,6 @@ import { ITask } from '../../Task';
 export class TaskItemComponent implements OnInit {
   // base input task
   @Input() task: ITask = {
-    id: 0,
     text: 'no task',
     day: 'no day',
     reminder: false,
