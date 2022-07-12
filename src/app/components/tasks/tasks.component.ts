@@ -29,4 +29,9 @@ export class TasksComponent implements OnInit {
   toggleReminderStatus = (task: ITask) => {
     this.taskService.toggleReminderStatus(task).subscribe();
   };
+
+  // add a new task in db
+  addTask = (task: ITask) => {
+    this.taskService.addTask(task).subscribe((task) => this.tasks.push(task));
+  };
 }

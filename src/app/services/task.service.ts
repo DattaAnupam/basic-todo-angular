@@ -37,4 +37,10 @@ export class TaskService {
     const updateRemStatusUrl = `${this.apiUrl}/${task.id}`;
     return this.http.put<ITask>(updateRemStatusUrl, task, httpOptions);
   };
+
+  // POST
+  // Add a new task
+  addTask = (task: ITask): Observable<ITask> => {
+    return this.http.post<ITask>(this.apiUrl, task, httpOptions);
+  };
 }
