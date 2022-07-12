@@ -15,23 +15,25 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     // get tasks using task.service
-    this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
+    this.taskService.getTasksSvc().subscribe((tasks) => (this.tasks = tasks));
   }
 
   // delete the specified task from db
   deleteTask = (task: ITask) => {
-    this.taskService.deleteTask(task).subscribe(() => {
+    this.taskService.deleteTaskSvc(task).subscribe(() => {
       this.tasks = this.tasks.filter((t) => t.id !== task.id);
     });
   };
 
   // updates a property in db
   toggleReminderStatus = (task: ITask) => {
-    this.taskService.toggleReminderStatus(task).subscribe();
+    this.taskService.toggleReminderStatusSvc(task).subscribe();
   };
 
   // add a new task in db
   addTask = (task: ITask) => {
-    this.taskService.addTask(task).subscribe((task) => this.tasks.push(task));
+    this.taskService
+      .addTaskSvc(task)
+      .subscribe((task) => this.tasks.push(task));
   };
 }
